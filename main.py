@@ -11,8 +11,8 @@ C2 = "10111101101001100000011010000101110010001100100001101100011010011111010100
 # Both C1 & C2 were encrypted with the same key using a one-time pad.
 
 # plaintext1 & plaintext2 have part of the decrypted ciphers.
-plaintext1 = "I visualize a time when we will be to robots what dogs are to humans, and I'm rooting for the machines."
-plaintext2 = "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin."
+plaintext1 = "I visualize a time when we will be to robots what dogs are to humans, and I'm rooting for the machines.  (Claude Shannon)"
+plaintext2 = "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin. (John von Neumann)"
 
 # Given to lists of bits, return their XOR
 def xor_two_lists(first, second):
@@ -39,7 +39,8 @@ def main():
 	c2_list = map(int, list(C2))
 
 	# Total compares needed since we will make ASCII byte-wise comparisons
-	totalCompares = (len(C1)/7) - (len(guessBits)/7)
+	totalCompares = (len(C1)/7) - (len(guessBits)/7) + 1
+	print "totalcomps: " + str(totalCompares)
 
 	# Check for guess match in cipher text, shifting by 1 byte for each iteration
 	for x in range(0,totalCompares):
@@ -55,8 +56,8 @@ def main():
 		decryptedMessage = given.bits_to_string(possibleMessage)
 
 		# Print if decryptedMessage potentially part of an english sentence
-		if(regex_english(decryptedMessage)):
-			print decryptedMessage + " beg: " + str(beg/7) + " end: " + str(end/7)
+		# if(regex_english(decryptedMessage)):
+		print decryptedMessage + " beg: " + str(beg/7) + " end: " + str(end/7)
 
 
 if __name__ == "__main__":
