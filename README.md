@@ -4,7 +4,15 @@ This project is a simple command line application for trying to break a one time
 
 ## Install
 
+Simply Clone the respository and navigate into the folder:
 
+```bash
+git clone git@github.com:fabioberger/One_Time_Pad_Decrypter.git
+```
+
+```bash
+cd One_Time_Pad_Decrypter 
+```
 
 ## How To Use
 
